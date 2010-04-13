@@ -81,39 +81,6 @@ def load_character_ids
 				$chars[x].rrexp = rr
 			end
 
-=begin this section isn't gonna wokr fucking mythic
-			s=1 if /slot-9-hover/ =~ line
-			s=2 if /slot-24-hover/ =~ line
-			s=3 if /slot-20-hover/ =~ line
-			s=4 if /slot-21-hover/ =~ line
-			s=5 if /slot-28-hover/ =~ line
-			s=6 if /slot-22-hover/ =~ line
-			s=7 if /slot-10-hover/ =~ line
-			s=8 if /slot-11-hover/ =~ line	
-			s=9 if /slot-27-hover/ =~ line
-			s=10 if /slot-31-hover/ =~ line
-			s=11 if /slot-32-hover/ =~ line
-			s=12 if /slot-33-hover/ =~ line
-			s=13 if /slot-34-hover/ =~ line
-	
-			if /equip-name/ =~ line
-				$chars[x].accessory4 = strip_html(line) if y == 13
-				$chars[x].accessory3 = strip_html(line) if y == 12
-				$chars[x].accessory2 = strip_html(line) if y == 11
-				$chars[x].accessory1 = strip_html(line) if y == 10
-				$chars[x].back = strip_html(line) if y == 9
-				$chars[x].lhand = strip_html(line) if y == 8
-				$chars[x].rhand = strip_html(line) if y == 7
-				$chars[x].feet = strip_html(line) if y == 6
-				$chars[x].belt = strip_html(line) if y == 5
-				$chars[x].hands = strip_html(line) if y == 4	
-				$chars[x].chest = strip_html(line) if y == 3
-				$chars[x].shoulders = strip_html(line) if y == 2
-				$chars[x].healm = strip_html(line) if y == 1
-				s=0
-			end
-=end
-
 		end
 		x=x+1
  	end
