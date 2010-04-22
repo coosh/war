@@ -14,10 +14,10 @@ ActiveRecord::Base.logger = Logger.new(STDERR)
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'mysql',
-  :host => 'localhost',
-  :username => '',
-  :password => '',
-  :database => ''
+  :host => ENV['MYSQL_HOST'],
+  :username => ENV['MYSQL_USER'],
+  :password => ENV['MYSQL_PASS'],
+  :database => ENV['MYSQL_DB']
 )
 class Character < ActiveRecord::Base
  
