@@ -68,7 +68,7 @@ guildpage.search(" //div/table[@summary='Guild Roster']/tbody ").each_with_index
   if Character.exists?(:idtag => idtag.to_s)
     Character.update_all("status='#{status.to_s}', level='#{level.to_s}'", :idtag => idtag.to_s)
   else
-    Character.create(:idtag => idtag.to_s, :name => name.to_s, :career => career.to_s, :level => level.to_s, :status => status.to_s)
+    Character.create(:idtag => idtag.to_s, :name => name.to_s, :career => career.to_s, :level => level.to_s, :status => status.to_s, :gid => gid.to_s, :sid => sid.to_s)
   end
 end
 
