@@ -7,10 +7,10 @@ sid = "2"
 # requirements
 require 'net/http'
 require 'rubygems'
-require 'hpricot'
+require 'nokogiri'
 require 'active_record'
 chars = {}
-ActiveRecord::Base.logger = Logger.new(STDERR)
+#ActiveRecord::Base.logger = Logger.new(STDERR)
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'mysql',
@@ -54,9 +54,9 @@ end
 
 # Load guild webpage status and update DB
 searchurl = "https://realmwar.warhammeronline.com/realmwar/GuildInfo.war?id=#{gid.to_s}&server=#{sid.to_s}"
-guildpage = Hpricot.parse(Net::HTTP.get(URI.parse(searchurl)))
-guildpage.search(" //div/table[@summary='Guild Roster']/tbody ").each_with_index do |line, index|
-  charsearch = Hpricot.parse(line.to_s)
+guildpage = Nokogiri.parse(Net::HTTP.get(URI.parse(searchurl)))
+guildpage.search("//div/table[@summary='Guild Roster']/tbody").each_with_index do |line, index|
+  charsearch = Nokogiri.parse(line.to_s)
   status = (charsearch/:img).first[:title]
   status = status.match(/O[fn]{1,2}line/)
   name = (charsearch/:a).inner_html
